@@ -1,0 +1,30 @@
+# Python version
+python>=3.10  # Python version required for compatibility with TensorFlow and other libraries
+
+# Core deep learning and image processing
+tensorflow>=2.10.0              # Core framework for deep learning (including Keras)
+keras>=2.10.0                   # Keras version compatible with TensorFlow
+opencv-python>=4.5.5            # For image reading and manipulation
+albumentations>=1.1.0           # For advanced image augmentations
+Pillow>=8.3.0                   # For image handling and preprocessing
+numpy>=1.21.0                   # For numerical operations and handling arrays
+
+# Data manipulation and analysis
+pandas>=1.3.0                   # For handling data in DataFrames
+
+# Visualization
+matplotlib>=3.4.0               # For plotting and visualizations
+seaborn>=0.11.0                 # For statistical data visualizations
+
+# Progress bar
+tqdm>=4.62.3                    # For displaying progress bars
+
+# Web app
+streamlit>=1.10.0               # For building the user interface
+
+# Scikit-learn for metrics, preprocessing, train/test split
+scikit-learn>=0.24.2            # For data splitting, evaluation metrics, and models
+
+# Optional: If you're using Jupyter for VS Code (if you run notebooks inside VS Code)
+jupyter>=1.0.0                  # To run Jupyter notebooks
+ipykernel>=6.5.0                # Jupyter kernel support

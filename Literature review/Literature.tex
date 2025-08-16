@@ -1,0 +1,131 @@
+% documentclass: article is a good choice for shorter documents like reviews.
+\documentclass[10pt, a4paper]{article}
+
+% --- LaTeX Packages ---
+% graphicx: for including images
+\usepackage{graphicx}
+% hyperref: for clickable links (URLs in references)
+\usepackage{hyperref}
+% geometry: for custom page margins (optional, but good for presentation)
+\usepackage[margin=1in]{geometry}
+% fancyhdr: for custom headers/footers (optional)
+\usepackage{fancyhdr}
+% amsmath, amssymb: for advanced math symbols (not strictly needed for this doc, but good to include for scientific papers)
+\usepackage{amsmath, amssymb}
+% booktabs: for nicer tables (not used here, but common in scientific writing)
+\usepackage{booktabs}
+% titlesec: for custom section formatting (optional)
+\usepackage{titlesec}
+
+% --- Customizing Section Headings (Optional) ---
+% Makes section titles slightly larger and bold
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{\MakeUppercase}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{}
+
+% --- Document Metadata ---
+% Title of the paper
+\title{Detection of Covid-19 using Chest X-Ray}
+% Authors' names
+\author{Akash Nair (24217873) \and Jagruti Patil (23226141)}
+% Date of the paper (e.g., \today for current date)
+\date{June 2025}
+
+% --- Begin Document ---
+\begin{document}
+
+% Generate the title section
+\maketitle
+
+% --- Abstract ---
+\section*{Abstract}
+The world health emergency situation created by the COVID-19 pandemic brought to the forefront essential requirements for quick and affordable diagnostic resources beyond standard RT-PCR analysis. The objective of this research is to find out whether chest X-ray imaging, along with sophisticated deep learning techniques, can provide a rapid and low-cost initial diagnostic tool. Our research work entails designing a stable convolutional neural network (CNN)-based model. This model aims to distinguish COVID-19 cases from normal lung states and other respiratory diseases on the basis of chest X-ray images, specifically in the context of situations where access to expert radiological interpretation might be delayed.
+
+% --- Introduction ---
+\section*{Introduction}
+COVID-19, which is caused by SARS-CoV-2, remains a major public health issue. Although RT-PCR is still the gold standard for diagnosis, its logistical limitations, particularly with regard to availability and turnaround times in many geographical areas, highlight the need for alternative screening approaches. Chest X-ray machines are readily available and provide rapid image acquisition, and thus represent an attractive modality for early detection when combined with artificial intelligence methodology. This project aims to make a contribution to this field by creating an intelligent diagnostic system.
+
+% --- Motivation ---
+\section*{Motivation}
+Prompt and reliable diagnosis is critical for disease control of transmission and maximizing healthcare resource utilization. An automated COVID-19 detection system from chest X-rays may offer real-time feedback to the clinician. It can potentially revolutionize patient triaging in emergency departments, especially for rural or underprivileged communities where access to specialist radiologists may not be easily available.
+
+% --- Advantages / Benefits ---
+\section*{Advantages}
+The proposed system brings a number of advantages to the table. It is intended to provide rapid and scalable diagnosis without requiring huge laboratory facilities. It can be used as an invaluable "second opinion" or first-level screening device for clinicians, thus hopefully minimizing the over-reliance on RT-PCR tests for primary assessment. Its implementation will also account for deployment in low-resource settings to improve large-scale screening initiatives. In addition, the inclusion of explainability features, like Gradient-weighted Class Activation Mapping (Grad-CAM), is an important component of this project to facilitate transparency and interpretability of the model's decision-making to healthcare providers to build trust and real-world usage.
+
+% --- Illustrative X-ray Image ---
+\subsection*{Illustrative X-ray Image}
+Below is an illustrative X-ray image that demonstrates the type of data involved in the project.
+
+\begin{figure}[h!]
+    \centering
+    % Reduced width slightly to help fit on page
+    \includegraphics[width=0.5\textwidth]{x_ray.png} % FILENAME UPDATED HERE
+    \caption{a Depicting COVID-19 case and b depicting normal case of CXR images} % CAPTION UPDATED HERE
+    \label{fig:xray}
+\end{figure}
+
+% --- Methodology ---
+\section*{Methodology}
+Our designed methodology for this project includes a systematic traversal of data preparation, design of the model architecture, training, and thorough evaluation.
+
+% --- Current Line of Thought ---
+\subsection*{Current Line of Thought}
+The core methodology is structured into distinct phases:
+\begin{itemize}
+    \item \textbf{Data Collection:} The project plans to make use of a publicly available chest X-ray image dataset. The dataset comprising 6,432 images is divided into three various labels: COVID-19, Pneumonia, and Normal cases, taken from Kaggle (i.e., the dataset at urlhttps://www.kaggle.com/datasets/alsaniipe/chest-x-ray-image). This varied dataset will be the foundation for training and cross-validation of our diagnostic model. 
+
+    \item \textbf{Data Preprocessing and Augmentation:} Before model training, raw image data will be preprocessed with required preprocessing steps. These include image normalization to make pixel intensities uniform and resizing to a standard size (e.g., 100x100 pixels, as is common in similar studies) for consistency in the dataset.
+    
+    \item \textbf{Model Development:} The central part of this project is the deployment of a Convolu- tional Neural Network (CNN) framework. We aim to examine and design a customized CNN for multi-class classification specifically for the features found in chest X-ray images.Additionally, we will consider whether transfer learning and pre-trained models such as ResNet, EfficientNet, or InceptionV3 can be used. This would enable the significant reduction of training times and potentially enhanced accuracy using learned features from large image data sets. The model will learn to extract appropriate radiographic patterns that characterize COVID-19, pneumonia, or healthy lung conditions.
+
+    \item \textbf{Model Training and Optimization:} The selected CNN model architecture will be trained on the preprocessed and augmented training data set. Training would encompass the model parameter optimization through iterative learning to reduce classification errors.
+
+    \item \textbf{Evaluation:} The performance of the designed AI model will be thoroughly evaluated using the independent test dataset. The primary evaluation metrics will be \textbf{Accuracy, Precision, Recall, F1-score, and ROC-AUC (Receiver Operating Characteristic - Area Under the Curve)}. Special focus will be given to the study of false negatives since the proper detection of positive COVID-19 cases is important for the proper management of the disease. To provide better interpretability for doctors and healthcare experts, \textbf{Grad-CAM visualization} will be utilized. This technique will help visualize the specific regions of the X-ray images that the model focuses on when making its predictions, offering valuable insights into its decision-making process.
+
+\end{itemize}
+
+% --- Project Workflow Flowchart ---
+\subsection*{Project Workflow Flowchart}
+This flowchart illustrates the high-level steps involved in the proposed project.
+
+% Include the flowchart image. Make sure 'flowchart.png' is in the same directory.
+\begin{figure}[h!]
+    \centering
+    % Reduced width significantly to help it fit within a page that also has text
+    \includegraphics[width=0.20\textwidth]{flowchart.png}
+    \caption{Conceptual flowchart illustrating the key stages of the COVID-19 detection project.}
+    \label{fig:flowchart}
+\end{figure}
+
+% --- Expected Outcome ---
+\section*{Expected Outcome}
+We expect to train an effective and highly robust AI model able to consistently classify COVID-19 cases from chest X-rays. The main purpose of the model will be to support clinicians by making quick, interpretable predictions, thus enabling timely interventions and resource allocation, especially where there is no direct access to expert radiology consultation.
+
+% --- Future Enhancements ---
+\subsection*{Future Enhancements}
+Future research is open to a number of avenues. Additional incorporation of clinical data (lab results, patient information, CT scans, symptoms) may increase diagnostic accuracy and predictability. Real-time implementation using web or mobile apps will also be investigated to enhance usability and accessibility in emergency and rural settings.
+
+% --- Conclusion ---
+\section*{Conclusion}
+The computer-assisted analysis of chest X-rays based on AI holds great promise as an adjunct di- agnostic tool in the ongoing war against COVID-19. By judicious use of CNNs, application of robust data processing, and integration of explainability methods, the model outlined here aims to improve faster, more scalable, and understandable disease screening processes, ultimately benefiting global health efforts.
+
+% --- References ---
+% For simple manually numbered references, use the thebibliography environment.
+\begin{thebibliography}{99} % The number in curly braces (99) defines the widest label expected.
+
+\bibitem{Apostolopoulos2020}
+Apostolopoulos, I. D., \& Mpesiana, T. A. (2020). COVID-19 detection from X-rays via CNNs. \textit{Phys. Eng. Sci. Med.}, \textbf{43}(2), 635--640. \url{https://doi.org/10.1007/s13246-020-00865-4}
+
+\bibitem{Chowdhury2020}
+Chowdhury, M. E. H., et al. (2020). AI for viral pneumonia screening. \textit{IEEE Access}, \textbf{8}, 132665--132676. \url{https://doi.org/10.1109/ACCESS.2020.3010287}
+
+\bibitem{Harmon2020}
+Harmon, S. A., et al. (2020). AI detection on CT across nations. \textit{Nat. Commun.}, \textbf{11}(1), 4080. \url{https://doi.org/10.1038/s41467-020-17971-2}
+
+\bibitem{OakdenRayner2020}
+Oakden-Rayner, L. (2020). Pitfalls in medical imaging datasets. \textit{Acad. Radiol.}, \textbf{27}(1), 121--131. \url{https://doi.org/10.1016/j.acra.2019.08.011}
+
+\end{thebibliography}
+
+\end{document}
